@@ -21,14 +21,14 @@ def get_the_cheapest_big_mac_price_by_year(year):
     filtered_data = data[data['date'].str.startswith(str(year))]
     min_price = filtered_data['dollar_price'].min()
     cheapest_items = filtered_data[filtered_data['dollar_price'] == min_price]
-    return [f"{row['name']}({row['iso_a3']}): ${round(row['dollar_price'], 2)}" for index, row in cheapest_items.iterrows()]
+    return ", ".join([f"{row['name']}({row['iso_a3']}): ${round(row['dollar_price'], 2)}" for index, row in cheapest_items.iterrows()])
 
 def get_the_most_expensive_big_mac_price_by_year(year):
     data = pd.read_csv(big_mac_file)
     filtered_data = data[data['date'].str.startswith(str(year))]
     max_price = filtered_data['dollar_price'].max()
-    cheapest_items = filtered_data[filtered_data['dollar_price'] == max_price]
-    return [f"{row['name']}({row['iso_a3']}): ${round(row['dollar_price'], 2)}" for index, row in cheapest_items.iterrows()]
+    expensive_items = filtered_data[filtered_data['dollar_price'] == max_price]
+    return ", ".join([f"{row['name']}({row['iso_a3']}): ${round(row['dollar_price'], 2)}" for index, row in expensive_items.iterrows()])
 
 if __name__ == "__main__":
     result_a = get_big_mac_price_by_year(2010, "arg")
