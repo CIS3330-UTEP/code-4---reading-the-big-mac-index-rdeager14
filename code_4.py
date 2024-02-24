@@ -48,8 +48,8 @@ if __name__ == "__main__":
     result_b = get_big_mac_price_by_country("mex")
     print(result_b)
     
-    result_c = get_the_cheapest_big_mac_price_by_year('2008')
+    result_c = get_the_cheapest_big_mac_price_by_year(2008)
     print(result_c)
     
-    result_d = get_the_most_expensive_big_mac_price_by_year('2014')
+    result_d = get_the_most_expensive_big_mac_price_by_year(2014)
     print(result_d)
