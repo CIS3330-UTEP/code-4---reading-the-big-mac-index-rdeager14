@@ -25,7 +25,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     cheapest_country = df.loc[min_price, 'name']
     cheapest_country_code = df.loc[min_price, 'iso_a3']
     cheapest_price = df.loc[min_price, 'dollar_price']
-    return f"{cheapest_country}({cheapest_country_code}): ${cheapest_price:.2}"
+    return f"{cheapest_country}({cheapest_country_code}): ${cheapest_price:.3}"
 
     
 
@@ -37,7 +37,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     expensive_country = df.loc[max_price, 'name']
     expensive_country_code = df.loc[max_price, 'iso_a3']
     expensive_price = df.loc[max_price, 'dollar_price']
-    return f"{expensive_country}({expensive_country_code}): ${expensive_price:.2}"
+    return f"{expensive_country}({expensive_country_code}): ${expensive_price:.3}"
 
    
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     result_b = get_big_mac_price_by_country("mex")
     print(result_b)
     
-    result_c = get_the_cheapest_big_mac_price_by_year(2008)
+    result_c = get_the_cheapest_big_mac_price_by_year(2012)
     print(result_c)
     
     result_d = get_the_most_expensive_big_mac_price_by_year(2014)
